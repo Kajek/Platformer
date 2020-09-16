@@ -8,28 +8,47 @@ public class ThrowingEnemy : MonoBehaviour
     [SerializeField] float fireRate = 1f;
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] GameObject projectile;
+    [SerializeField] GameObject gun;
+    [SerializeField] float fireRange = 10f;
     
-    float nextFire;
+    
     Player player;
+    Animator animator;
     
     
 
     // Start is called before the first frame update
     void Start()
-    {
-        nextFire = Time.time;
+    {        
         player = FindObjectOfType<Player>();
-        
+        animator = GetComponent<Animator>();        
     }
 
     // Update is called once per frame
     void Update()
     {
         TurnToPlayer();
-        CheckIfTimeToFire(); // TODO rework to animation event with player proximity trigger
+        CheckIfInRangeToFire(); 
     }
 
-    private void TurnToPlayer()
+    private void CheckIfInRangeToFire()
+    {
+        if(Vector3.Distance(player.transform.position, transform.position) < fireRange)
+        {
+            animator.SetBool("Attacking", true);
+        }
+        else
+        {
+            animator.SetBool("Attacking", false);
+        }
+    }
+    public void Fire()
+    {
+        Instantiate(projectile, gun.transform.position, transform.rotation);
+        
+    }
+
+        private void TurnToPlayer()
     {
         if (player.transform.position.x <= transform.position.x)
         {
@@ -40,13 +59,5 @@ public class ThrowingEnemy : MonoBehaviour
             transform.localScale = new Vector2(-1, 1);
         }
     }
-
-    private void CheckIfTimeToFire()
-    {
-        if (Time.time > nextFire)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            nextFire = Time.time + fireRate;
-        }
-    }
+        
 }
