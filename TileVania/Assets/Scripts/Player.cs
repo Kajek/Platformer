@@ -11,6 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
+    [SerializeField] AudioClip playerJump;
+    [SerializeField] [Range(0, 1)] float playerJumpVolume = 0.75f;
+    [SerializeField] AudioClip playerHit;
+    [SerializeField] [Range(0, 1)] float playerHitVolume = 0.75f;
+
+    private GameObject[] players;
+
 
     // State
     bool isAlive = true;
@@ -23,8 +30,14 @@ public class Player : MonoBehaviour
     float gravityScaleAtStart;
 
     // Message then methods
+    private static Player _instance;
+    public static Player Instance => _instance;
+    private void Awake()
+    {
+        _instance = this;      
+        DontDestroyOnLoad(this);
+    }
 
-    
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -32,6 +45,7 @@ public class Player : MonoBehaviour
         myBodyCollider2D = GetComponent<CapsuleCollider2D>();
         myFeet = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myRigidbody.gravityScale;
+        FindStartPos();
     }
 
     // Update is called once per frame
@@ -43,6 +57,7 @@ public class Player : MonoBehaviour
         ClimbLadder();
         FlipSprite();
         Die();
+        
     }
 
     private void Run()
@@ -64,6 +79,7 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigidbody.velocity += jumpVelocityToAdd;
+            AudioSource.PlayClipAtPoint(playerJump, Camera.main.transform.position, playerJumpVolume);
         }
     }
 
@@ -90,12 +106,14 @@ public class Player : MonoBehaviour
     {
         if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards", "Projectiles")))
         {
+            AudioSource.PlayClipAtPoint(playerHit, Camera.main.transform.position, playerHitVolume);
             isAlive = false;
             myAnimator.SetTrigger("Die");
-            GetComponent<Rigidbody2D>().velocity = deathKick;
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            GameMaster.GameSession.ProcessPlayerDeath();
         }
     }
+
+    
 
     private void FlipSprite()
     {
@@ -106,5 +124,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        Respawn();
+        FindStartPos();        
+        players = GameObject.FindGameObjectsWithTag("Player");
 
+        if(players.Length > 1)
+        {
+            Destroy(players[1]);
+        }
+    }
+
+    private void Respawn()
+    {
+        isAlive = true;
+        myAnimator.SetTrigger("Alive");
+    }
+
+    private void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("StartPos").transform.position;
+    }
 }

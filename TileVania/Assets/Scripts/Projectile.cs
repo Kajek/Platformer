@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         stoneRigidbody = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<Player>();
+        player = GameMaster.Player;
         moveDirection = (player.transform.position - transform.position).normalized * moveSpeed;
         stoneRigidbody.velocity = new Vector2(moveDirection.x, moveDirection.y);
         Destroy(gameObject, 3f);

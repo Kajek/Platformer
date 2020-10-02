@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - StartPos
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackBackground
+    uniqueID: 3811297725
+    locked: 0
   - name: Background
     uniqueID: 16750093
     locked: 0
@@ -53,6 +57,9 @@ TagManager:
   - name: Hazards
     uniqueID: 1957462045
     locked: 0
+  - name: Interactables
+    uniqueID: 2719245425
+    locked: 0
   - name: Player
     uniqueID: 2697832419
     locked: 0
@@ -61,7 +68,4 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3474103739
-    locked: 0
-  - name: Interactables
-    uniqueID: 2719245425
     locked: 0

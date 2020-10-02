@@ -6,12 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Levels/Splash Screen.unity
+    guid: e00c975b32563754b91bf82576c349a0
+  - enabled: 1
     path: Assets/Levels/Main Menu.unity
     guid: ebce28d3a0ca50c48929d73e3fb8d5ce
   - enabled: 1
     path: Assets/Levels/Level 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 2555813ab637b9449a32414ba475fa5d
   - enabled: 1
     path: Assets/Levels/Level 2.unity
-    guid: e3e72ad583da44245b1895dd9a605e13
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Levels/Level 3.unity
+    guid: 638a330925600db4e8c4a762d3f32deb
+  - enabled: 1
+    path: Assets/Levels/Level 4.unity
+    guid: 602bf62f7e20d87468705cec1c49586b
+  - enabled: 1
+    path: Assets/Levels/Game Over.unity
+    guid: 6b1c9c522c41fee40b05107a8884d2e6
   m_configObjects: {}

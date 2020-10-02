@@ -7,31 +7,75 @@ using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
-    [SerializeField] int playerLives = 3;
-    [SerializeField] int score = 0;    
+    public static GameSession instance = null;
 
-    [SerializeField] Text livesText;
+    [SerializeField] int playerLives;
+    [SerializeField] int numOfHearts;
+    [SerializeField] Image[] hearts;
+    [SerializeField] Sprite fullHeart;
+    [SerializeField] Sprite emptyHeart;
+    [SerializeField] int score;        
     [SerializeField] Text scoreText;
-
+    [SerializeField] float delayInSeconds;
 
     private void Awake()
     {
-        int numGameSessions = FindObjectsOfType<GameSession>().Length;
-        if (numGameSessions > 1)
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+
+        DontDestroyOnLoad(gameObject);
+        //int numGameSessions = FindObjectsOfType<GameSession>().Length;
+        //if (numGameSessions > 1)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    DontDestroyOnLoad(gameObject);
+        //}
     }
+
+
 
     // Start is called before the first frame update
     void Start()
-    {
-        livesText.text = playerLives.ToString();
+    {        
         scoreText.text = score.ToString();
+    }
+
+    private void Update()
+    {
+        if (playerLives > numOfHearts)
+        {
+            playerLives = numOfHearts;
+        }
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < playerLives)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
 
     public void AddToScore(int pointsToAdd)
@@ -48,21 +92,42 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession();
+            LoadGameOver();
         }
     }
 
     private void TakeLife()
     {
         playerLives --;
+        StartCoroutine(WaitBeforeReset()); 
+    }
+    IEnumerator WaitBeforeReset()
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        //Destroy(GameMaster.Player);        
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        livesText.text = playerLives.ToString();
+        //Instantiate(PlayerPrefab);//(GameMaster.Player);
     }
 
-    private void ResetGameSession()
+    public void LoadGameOver()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(WaitAndLoad());
+    }
+
+    IEnumerator WaitAndLoad()
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        SceneManager.LoadScene("Game Over");
+    }
+    public void ResetGame()
+    {
         Destroy(gameObject);
     }
+    public int GetScore()
+    {
+        return score;
+    }
+
+
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ThrowingEnemy : MonoBehaviour
 {
-    [SerializeField] float fireRate = 1f;
+    [SerializeField] float fireRate;
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject gun;
     [SerializeField] float fireRange = 10f;
-    
+
     
     Player player;
     Animator animator;
@@ -19,8 +19,8 @@ public class ThrowingEnemy : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
-        player = FindObjectOfType<Player>();
+    {
+        player = GameMaster.Player;
         animator = GetComponent<Animator>();        
     }
 
