@@ -15,6 +15,7 @@ public class Menu : MonoBehaviour
         GameMaster.GameSession.ResetGameSession();
         GameMaster.PlayerHealth.ResetPlayerHealth();
         GameMaster.Player.ResetPlayer();
+        GameMaster.Cameras.ResetCameras();
         SceneManager.LoadScene(1);
     }
 

@@ -931,6 +931,18 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &1210653905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5912780292182747277, guid: a2f00b5e89e6b564fa2587ed5537942b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5912780292182747275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815c326d6bb2e374e8043f48b285ba20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1241470212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8721,6 +8733,11 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 1487629156}
+    - target: {fileID: 4567531157843688961, guid: c47534de4957d04428e34f3c44503745,
+        type: 3}
+      propertyPath: _cameras
+      value: 
+      objectReference: {fileID: 1210653905}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47534de4957d04428e34f3c44503745, type: 3}
 --- !u!1001 &924361092288596867
@@ -8942,10 +8959,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 574115066, guid: a2f00b5e89e6b564fa2587ed5537942b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.529257
-      objectReference: {fileID: 0}
     - target: {fileID: 574115067, guid: a2f00b5e89e6b564fa2587ed5537942b, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -8954,10 +8967,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 410370120}
-    - target: {fileID: 1493003140, guid: a2f00b5e89e6b564fa2587ed5537942b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.480473
-      objectReference: {fileID: 0}
     - target: {fileID: 1493003141, guid: a2f00b5e89e6b564fa2587ed5537942b, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -8969,17 +8978,7 @@ PrefabInstance:
     - target: {fileID: 5912780291949072395, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4340954
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912780291949072395, guid: a2f00b5e89e6b564fa2587ed5537942b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.085540295
-      objectReference: {fileID: 0}
-    - target: {fileID: 5912780291949072628, guid: a2f00b5e89e6b564fa2587ed5537942b,
-        type: 3}
-      propertyPath: orthographic size
-      value: 7
+      value: -9.048163
       objectReference: {fileID: 0}
     - target: {fileID: 5912780292368814963, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
@@ -8991,28 +8990,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 410370120}
-    - target: {fileID: 5912780292368814973, guid: a2f00b5e89e6b564fa2587ed5537942b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.529257
-      objectReference: {fileID: 0}
     - target: {fileID: 5912780292496326023, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5912780292496326023, guid: a2f00b5e89e6b564fa2587ed5537942b,
-        type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1264376724116829007, guid: 6c6c8b3944aee4748949d0ed4496abf1,
-        type: 3}
-    - target: {fileID: 5912780292496326023, guid: a2f00b5e89e6b564fa2587ed5537942b,
-        type: 3}
-      propertyPath: m_AnimatedTarget
-      value: 
-      objectReference: {fileID: 1264376724116829006, guid: 6c6c8b3944aee4748949d0ed4496abf1,
-        type: 3}
     - target: {fileID: 5912780293129546040, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
       propertyPath: m_Name
