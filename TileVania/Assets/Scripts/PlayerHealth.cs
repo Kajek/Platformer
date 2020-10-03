@@ -87,6 +87,7 @@ public class PlayerHealth : MonoBehaviour
         //Destroy(GameMaster.Player);        
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        //GameMaster.Player.ResetPlayer();
         //Instantiate(PlayerPrefab);//(GameMaster.Player);
     }
 
@@ -100,5 +101,8 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(delayInSeconds);
         SceneManager.LoadScene("Game Over");
     }
-
+    public void ResetPlayerHealth()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -155,7 +155,7 @@ MonoBehaviour:
   - {fileID: 4047448280152651782}
   fullHeart: {fileID: 21300000, guid: 3deedfc137fd8a6498fb1b1590e26f7a, type: 3}
   emptyHeart: {fileID: 21300000, guid: 34157727eefb1aa49bb5b33110d1a024, type: 3}
-  delayInSeconds: 2
+  delayInSeconds: 1
 --- !u!1 &2307243025158106882
 GameObject:
   m_ObjectHideFlags: 0

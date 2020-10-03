@@ -10,10 +10,12 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private Player _player;
     [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private Cameras _cameras;
 
     public static GameSession GameSession => _instance._gameSession;
     public static Player Player => _instance._player;
     public static PlayerHealth PlayerHealth => _instance._playerHealth;
+    public static Cameras Cameras => _instance._cameras;
 
     private void Awake()
     {

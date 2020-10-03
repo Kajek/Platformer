@@ -21,25 +21,7 @@ public class GameSession : MonoBehaviour
         _instance = this;
 
         DontDestroyOnLoad(this);
-        //if (instance == null)
-        //{
-        //    instance = this;
-        //}
-        //else if (instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
-
-        //DontDestroyOnLoad(gameObject);
-        //int numGameSessions = FindObjectsOfType<GameSession>().Length;
-        //if (numGameSessions > 1)
-        //{
-        //    Destroy(gameObject);
-        //}
-        //else
-        //{
-        //    DontDestroyOnLoad(gameObject);
-        //}
+      
     }
 
 
@@ -62,7 +44,7 @@ public class GameSession : MonoBehaviour
     }
 
 
-    public void ResetGame()
+    public void ResetGameSession()
     {
         Destroy(gameObject);
     }

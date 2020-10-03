@@ -7,8 +7,15 @@ public class Menu : MonoBehaviour
 {
     public void StartFirstLevel()
     {
+        SceneManager.LoadScene(2);        
+    }
+    public void StartNewGame()
+    {
         SceneManager.LoadScene(2);
-        GameMaster.GameSession.ResetGame();
+        GameMaster.GameSession.ResetGameSession();
+        GameMaster.PlayerHealth.ResetPlayerHealth();
+        GameMaster.Player.ResetPlayer();
+        SceneManager.LoadScene(1);
     }
 
     public void LoadMainMenu()

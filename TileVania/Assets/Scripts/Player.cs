@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip playerJump;
     [SerializeField] [Range(0, 1)] float playerJumpVolume = 0.75f;
     [SerializeField] AudioClip playerHit;
-    [SerializeField] [Range(0, 1)] float playerHitVolume = 0.75f;
+    [SerializeField] [Range(0, 1)] float playerHitVolume = 0.75f;    
 
     private GameObject[] players;
 
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(playerHit, Camera.main.transform.position, playerHitVolume);
             isAlive = false;
-            myAnimator.SetTrigger("Die");
+            myAnimator.SetBool("Die", true);
             GameMaster.PlayerHealth.ProcessPlayerDeath();
         }
     }
@@ -124,26 +124,32 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnLevelWasLoaded(int level)
+    private void OnLevelWasLoaded(int level)    
     {
         Respawn();
         FindStartPos();        
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        //if(players.Length > 1)
-        //{
-        //    Destroy(players[1]);
-        //}
+        if (players.Length > 1)
+        {
+            Destroy(players[1]);
+        }
     }
 
     private void Respawn()
     {
         isAlive = true;
-        myAnimator.SetTrigger("Alive");
+        myAnimator.SetBool("Die", false);
+        
     }
+    
 
     private void FindStartPos()
     {
         transform.position = GameObject.FindWithTag("StartPos").transform.position;
+    }
+    public void ResetPlayer()
+    {
+        Destroy(gameObject);
     }
 }

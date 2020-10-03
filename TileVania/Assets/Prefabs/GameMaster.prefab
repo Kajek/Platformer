@@ -46,3 +46,4 @@ MonoBehaviour:
   _gameSession: {fileID: 0}
   _player: {fileID: 0}
   _playerHealth: {fileID: 0}
+  _cameras: {fileID: 0}

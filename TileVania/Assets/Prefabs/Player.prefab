@@ -164,6 +164,7 @@ MonoBehaviour:
   playerJumpVolume: 0.75
   playerHit: {fileID: 8300000, guid: 39c530f57bb3fb644ab430ec958cec3e, type: 3}
   playerHitVolume: 0.75
+  respawnDelay: 1
 --- !u!61 &1775726376709554230
 BoxCollider2D:
   m_ObjectHideFlags: 0
