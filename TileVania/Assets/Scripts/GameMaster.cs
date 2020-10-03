@@ -9,9 +9,11 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private Player _player;
+    [SerializeField] private PlayerHealth _playerHealth;
 
     public static GameSession GameSession => _instance._gameSession;
     public static Player Player => _instance._player;
+    public static PlayerHealth PlayerHealth => _instance._playerHealth;
 
     private void Awake()
     {

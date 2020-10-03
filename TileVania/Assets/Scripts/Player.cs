@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(playerHit, Camera.main.transform.position, playerHitVolume);
             isAlive = false;
             myAnimator.SetTrigger("Die");
-            GameMaster.GameSession.ProcessPlayerDeath();
+            GameMaster.PlayerHealth.ProcessPlayerDeath();
         }
     }
 
@@ -130,10 +130,10 @@ public class Player : MonoBehaviour
         FindStartPos();        
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        if(players.Length > 1)
-        {
-            Destroy(players[1]);
-        }
+        //if(players.Length > 1)
+        //{
+        //    Destroy(players[1]);
+        //}
     }
 
     private void Respawn()
