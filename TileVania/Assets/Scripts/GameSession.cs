@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
-    //public static GameSession instance = null;
+    
     private static GameSession _instance;
     public static GameSession Instance => _instance;
 
@@ -19,9 +19,7 @@ public class GameSession : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-
-        DontDestroyOnLoad(this);
-      
+        DontDestroyOnLoad(this);      
     }
 
 
@@ -32,10 +30,6 @@ public class GameSession : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    private void Update()
-    {
-        
-    }
 
     public void AddToScore(int pointsToAdd)
     {

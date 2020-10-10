@@ -6,13 +6,12 @@ using UnityEngine;
 public class ThrowingEnemy : MonoBehaviour
 {
     [SerializeField] float fireRate;
-    [SerializeField] float rotationSpeed = 5f;
+    //[SerializeField] float rotationSpeed = 5f;
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject gun;
-    [SerializeField] float fireRange = 10f;
-
+    [SerializeField] float fireRange = 10f;    
     
-    Player player;
+    private Player player;
     Animator animator;
     
     
@@ -20,7 +19,7 @@ public class ThrowingEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameMaster.Player;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         animator = GetComponent<Animator>();        
     }
 

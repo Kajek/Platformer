@@ -20,7 +20,7 @@ public class ScenePersist : MonoBehaviour
             if (numScenePersist > 1)
             {
                 Destroy(gameObject);
-                Debug.Log("ScenePersist has been destoyed due to Singleton");
+                
             }
             else
             {
@@ -37,15 +37,14 @@ public class ScenePersist : MonoBehaviour
     IEnumerator Singleton()
     {
 
-        float yieldDuration;
+        //float yieldDuration;
 
         yield return new WaitForSecondsRealtime(Time.deltaTime);
 
         int numScenePersist = FindObjectsOfType<ScenePersist>().Length;
         if (numScenePersist > 1)
         {
-            Destroy(gameObject);
-            Debug.Log("ScenePersist has been destoyed due to Singleton");
+            Destroy(gameObject);            
         }
         else
         {
@@ -64,7 +63,6 @@ public class ScenePersist : MonoBehaviour
     void Update()
     {
         CheckIfStillInSameScene();
-
     }
 
     private void CheckIfStillInSameScene()
@@ -73,7 +71,7 @@ public class ScenePersist : MonoBehaviour
         if (actualSceneIndex != sceneIndexAtStart)
         {
             Destroy(gameObject);
-            Debug.Log("ScenePersist has been destoyed due to SceneChange");
+
         }
         else
         {

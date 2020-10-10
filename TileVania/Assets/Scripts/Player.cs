@@ -32,11 +32,7 @@ public class Player : MonoBehaviour
     // Message then methods
     private static Player _instance;
     public static Player Instance => _instance;
-    private void Awake()
-    {
-        _instance = this;      
-        DontDestroyOnLoad(this);
-    }
+    
 
     void Start()
     {
@@ -126,7 +122,7 @@ public class Player : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)    
     {
-        Respawn();
+        //Respawn();
         FindStartPos();        
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -136,11 +132,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         isAlive = true;
-        myAnimator.SetBool("Die", false);
-        
+        if (_instance != null)
+        {
+            myAnimator.SetBool("Die", false);
+        }
+
     }
     
 

@@ -7,9 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     private static PlayerHealth _instance;
-    public static PlayerHealth Instance => _instance;
-
-    //public static PlayerHealth instance = null;
+    public static PlayerHealth Instance => _instance;    
 
     [SerializeField] int playerLives;
     [SerializeField] int numOfHearts;
@@ -23,16 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _instance = this;
         DontDestroyOnLoad(this);
-        //if (instance == null)
-        //{
-        //    instance = this;
-        //}
-        //else if (instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
-
-        //DontDestroyOnLoad(gameObject);
+        
     }
 
         // Update is called once per frame
@@ -83,12 +72,10 @@ public class PlayerHealth : MonoBehaviour
     }
     IEnumerator WaitBeforeReset()
     {
-        yield return new WaitForSeconds(delayInSeconds);
-        //Destroy(GameMaster.Player);        
+        yield return new WaitForSeconds(delayInSeconds);               
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        //GameMaster.Player.ResetPlayer();
-        //Instantiate(PlayerPrefab);//(GameMaster.Player);
+        GameMaster.Player.Respawn();
     }
 
     public void LoadGameOver()
@@ -99,6 +86,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator WaitAndLoad()
     {
         yield return new WaitForSeconds(delayInSeconds);
+        GameMaster.PlayerHealth.ResetPlayerHealth();
         SceneManager.LoadScene("Game Over");
     }
     public void ResetPlayerHealth()

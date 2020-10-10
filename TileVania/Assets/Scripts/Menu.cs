@@ -10,12 +10,9 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(2);        
     }
     public void StartNewGame()
-    {
-        SceneManager.LoadScene(2);
+    {        
         GameMaster.GameSession.ResetGameSession();
-        GameMaster.PlayerHealth.ResetPlayerHealth();
-        GameMaster.Player.ResetPlayer();
-        GameMaster.Cameras.ResetCameras();
+        //GameMaster.PlayerHealth.ResetPlayerHealth();        
         SceneManager.LoadScene(1);
     }
 
