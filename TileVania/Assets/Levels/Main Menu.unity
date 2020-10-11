@@ -748,7 +748,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 825033513}
-        m_MethodName: LoadMainMenu
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9267,12 +9267,12 @@ PrefabInstance:
     - target: {fileID: 5912780291949072395, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0193615
+      value: -4.8010387
       objectReference: {fileID: 0}
     - target: {fileID: 5912780291949072395, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.085540295
+      value: -0.108674526
       objectReference: {fileID: 0}
     - target: {fileID: 5912780292368814963, guid: a2f00b5e89e6b564fa2587ed5537942b,
         type: 3}
